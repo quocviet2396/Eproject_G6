@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="fontawesome-free-6.1.2-web/css/all.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/myscript.js">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <style>
 
     </style>
@@ -44,7 +45,7 @@
                                         class="social-icon">Contact Us</a></th>
                             <th><a href="#!service"><img src="image/index-image/serviceicon.png"
                                         class="social-icon">Service</a></th>
-                            <th><a href="#!signup-in"><img src="image/index-image/signupicon.png"
+                            <th><a href="#!signupin"><img src="image/index-image/signupicon.png"
                                         class="social-icon">Sign Up / Sign In</a></th>
                         </tr>
                     </table>
@@ -99,8 +100,15 @@
 
 
 
-    <script src="js/myscript.js">
-
+    <script src="js/myscript.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.querySelectorAll('img')
+            .forEach((img) =>
+                img.addEventListener('load', () =>
+                    AOS.refresh()
+                )
+            );
     </script>
 </body>
 

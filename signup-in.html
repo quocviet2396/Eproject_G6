@@ -1,0 +1,116 @@
+<style>
+    .background-signup {
+        background: url(image/signupin-image/151205.webp);
+        background-size: cover;
+        background-position-y: -10px;
+        font-size: 16px;
+    }
+
+    .login-h1 {
+        font-size: 25px;
+        color: #f5f5f5;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        border-bottom: 1px solid #fff;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
+    .form-input {
+        background: transparent;
+        border: 0px;
+        outline: 0px;
+        color: #fff;
+    }
+
+    .form-input::placeholder {
+        color: red;
+    }
+
+    .form-submit {
+        background: transparent;
+        border: 1px solid #f5f5f5;
+        color: #fff;
+        width: 100%;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        transition: 0.25s ease-in-out;
+        margin-top: 30px;
+    }
+
+    .form-submit:hover {
+        border: 1px solid #54a0ff;
+    }
+
+    .container-hop {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #login {
+        max-width: 600px;
+        background: rgba(0, 0, 0, 0.8);
+        flex-grow: 1;
+        padding: 100px;
+        box-shadow: 0px 0px 17px 2px rgba(255, 255, 255, 0.8);
+    }
+
+    .login-h1 {
+        font-size: 25px;
+        color: #f5f5f5;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-register {
+        color: #fff;
+        text-transform: uppercase;
+        transition: 0.25s ease-in-out;
+    }
+</style>
+<div class="container-hop background-signup">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 login-css" data-aos="fade-up">
+            <form id="login">
+                <h1 class="login-h1">Login</h1>
+                <div class="form-group">
+                    <input type="text" placeholder="User Name" class="form-input" id="username" name="username"
+                        autofocus required value="">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-input" id="pass" name="pass" required>
+                </div>
+                <input type="submit" value="Login" class="form-submit" id="dangnhap" name="dangnhap">
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 register-css" data-aos="fade-up">
+            <form id="login">
+                <h1 class="login-h1">Register</h1>
+                <div class="form-group">
+                    <input type="text" placeholder="User Name" class="form-input" id="username" name="username"
+                        autofocus required value="">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" required placeholder="Please enter your email"
+                        class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-input" id="pass" name="pass" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Enter the password" class="form-input" id="pass2" name="pass2"
+                        required>
+                </div>
+                <div>
+                    <input type="submit" value="register" class="form-submit" id="dangnhap" name="dangnhap">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
