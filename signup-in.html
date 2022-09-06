@@ -52,7 +52,7 @@
         align-items: center;
     }
 
-    #login {
+    .login-form {
         max-width: 600px;
         background: rgba(0, 0, 0, 0.8);
         flex-grow: 1;
@@ -76,20 +76,20 @@
 <div class="container-hop background-signup">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 login-css" data-aos="fade-up">
-            <form id="login">
+            <form id="login" class="login-form" onsubmit="return f1()">
                 <h1 class="login-h1">Login</h1>
                 <div class="form-group">
-                    <input type="text" placeholder="User Name" class="form-input" id="username" name="username"
+                    <input type="text" placeholder="User Name" class="form-input" id="username1" name="username1"
                         autofocus required value="">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-input" id="pass" name="pass" required>
+                    <input type="password" placeholder="Password" class="form-input" id="pass1" name="pass1" required>
                 </div>
                 <input type="submit" value="Login" class="form-submit" id="dangnhap" name="dangnhap">
             </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 register-css" data-aos="fade-up">
-            <form id="login">
+            <form id="register" class="login-form">
                 <h1 class="login-h1">Register</h1>
                 <div class="form-group">
                     <input type="text" placeholder="User Name" class="form-input" id="username" name="username"
@@ -97,7 +97,7 @@
                 </div>
                 <div class="form-group">
                     <input type="email" name="email" id="email" required placeholder="Please enter your email"
-                        class="form-input">
+                        class="form-input" pattern="([a-zA-Z0-9]+)@([a-z0-9]+)\.([a-z]{2,4})">
                 </div>
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-input" id="pass" name="pass" required>
@@ -107,10 +107,27 @@
                         required>
                 </div>
                 <div>
-                    <input type="submit" value="register" class="form-submit" id="dangnhap" name="dangnhap">
+                    <input type="submit" value="register" class="form-submit" id="dangky" name="dangky">
                 </div>
             </form>
         </div>
     </div>
 </div>
 
+<script>
+
+        
+        //java login
+        function f1() {
+
+            let uid = document.getElementById("username1").value.trim();
+
+            if (uid.length == 0) {
+                alert("Username cannot be blank, please do again !");
+                document.getElementById("username1").focus();
+                return false;
+            }
+            alert("Logged in successfully!");
+        }
+    
+</script>

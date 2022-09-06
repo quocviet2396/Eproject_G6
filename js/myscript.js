@@ -32,32 +32,22 @@ function myFunction4() {
 
 
 // script signin-up
-document.getElementById("register").onsubmit = function () {
+function f1() {
 
-    //1. kiem tra o nhap email co dung chuan ko?
-    let email = document.getElementById("email").value.trim().toLowerCase();
+    let uid = document.getElementById("username").value.trim();
 
-
-    //1a. bieu thuc qui tac (regular exp kiem tra email)
-    let r = /([a-z0-9_]+)@([a-z0-9]+)\.([a-z]{2,4})+/;
-
-    //1b. kiem tra du lieu trong nhap email co khop voi bieu thuc r?
-    if (r.test(email) == false) {
-        alert("Email ko hop le. Vui long nhap lai !!!");
-        document.getElementById("email").focus();
+    if (uid.length == 0) {
+        alert("Username cannot be blank, Please re-enter !");
+        document.getElementById("username").focus();
         return false;
     }
-    //ket thuc kiem tra o nhap email co dung chuan ko?
 
-
-    //2. kiem tra password va password confirm co giong nhau ko
-    let pass1 = document.getElementById("pass").value.trim();
+    let pass = document.getElementById("pass").value.trim();
     let pass2 = document.getElementById("pass2").value.trim();
-
-    if (pass1 != pass2) {
-        alert("Mat khau va Mat Khau nhap lai ko giong nhau ! Vui long nhap lai !");
+    if (pass != pass2) {
+        alert("Password and Retype Password do not match!");
         document.getElementById("pass").focus();
         return false;
     }
-    
+    alert("Thanks for your register!");
 }

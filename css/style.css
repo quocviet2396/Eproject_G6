@@ -54,10 +54,31 @@
 
 /* Service page */
 
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .album-gallery img {
     width: 300px;
     height: 200px;
     margin: 30px;
+}
+
+.zoom-img:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    transition: transform .5s;
 }
 
 /* Footer */
