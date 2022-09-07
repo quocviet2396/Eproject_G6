@@ -138,7 +138,7 @@ ul {
 }
 
 #wrapper {
-    height: 100vh;
+    height: 200px;
     display: flex;
     justify-content: center;
 }
