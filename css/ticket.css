@@ -1,0 +1,202 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.small {
+    font-size: small;
+
+}
+
+.cl {
+    border-radius: 25px;
+    background: rgb(238, 160, 14);
+    padding: 0px 10px 0px 0px;
+    padding: 10px 0px;
+    text-align: center;
+    font-family: Comic Sans MS;
+}
+
+
+
+.c2 {
+    border-radius: 25px;
+    background: rgb(0, 149, 255);
+    padding: 0px 10px 0px 0px;
+    padding: 10px 0px;
+    border-style: inherit;
+    text-align: center;
+    font-family: Comic Sans MS;
+}
+
+.c3 {
+    border-radius: 25px;
+    background: rgb(207, 10, 200);
+    padding: 0px 10px 0px 0px;
+    padding: 10px 0px;
+    text-align: center;
+    font-family: Comic Sans MS;
+}
+
+.h1 {
+    padding: 0px 50px;
+    border-radius: 20px;
+    background: palevioletred;
+    padding: 0px 10px 0px 0px;
+    padding: 5px 0px;
+    text-align: center;
+    font-family: Comic Sans MS;
+
+}
+
+h4 {
+    text-align: center;
+    font-size: 35px;
+    font-family: Brush Script MT;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+.header {
+    width:85%;
+    padding: 100px;
+    position: absolute;
+    color: white;
+ 
+
+}
+
+#banner {
+    background-image: url(https://i.guim.co.uk/img/media/b78eba8720659708cba9c1c5338a7e7773a56446/0_85_4288_2572/master/4288.jpg?width=1200&quality=85&auto=format&fit=max&s=821d4a9159836868ba6e066ab0a15688);
+    height: 400px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#banner1 {
+    background-image: url(../image/introduce-image/banner-gokart.jpg);
+    height: 400px;
+    width: 700px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 0px 100px 500px;
+    margin: auto;
+}
+
+#banner2 {
+    background-image: url(https://www.jerseysbest.com/wp-content/uploads/2021/05/Ocean-Oasis-Gallery-Wildwood.jpg);
+    height: 600px;
+    width: 100%px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 100px 0px 100px 500px;
+    margin: auto;
+
+}
+
+#banner3 {
+    background-image: url(https://keansburgamusementpark.com/wp-content/uploads/2015/03/haunted-manor_header.jpg);
+    height: 500px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#banner4{
+    background-image: url(https://patch.com/img/cdn20/users/22870800/20160620/052759/styles/raw/public/article_images/img_4249e.jpg);
+    height: 500px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#banner5{
+    background-image: url(https://khachsandanang.shop/uploads/images/images/tro-choi-ngoai-troi-vinwonder-nha-trang.jpg);
+    height: 400px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#banner6{
+    background-image: url(https://cctarts.org/wp-content/uploads/2015/08/new-buy-tickets-button_11_orig.png);
+    height: 400px;
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ul {
+    list-style: none;
+}
+
+#wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+ul#main-menu {
+    display: flex;
+}
+
+.g1 {
+    padding: 0px 0px 0px 270px;
+    float: left;
+    padding: auto;
+}
+
+.g2 {
+    padding: 0px 300px 0px 0px;
+    width: 50%;
+    float: right;
+    border: thin solid white;
+}
+
+.sp {
+    text-align: right;
+}
+
+.ps1 {
+    float: right;
+    margin-right: 20px
+}
+
+.h21 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+ul.row li:hover img {
+    transform: scale(1.2);
+    opacity: 0.9;
+}
+
+ul.row li a img {
+    display: block;
+    max-width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+ul.row li {
+    overflow: hidden;
+}
+
+.font {
+    font-family: "Zilla Slab", Arial, Helvetica, sans-serif;
+    ;
+    color: rgb(93, 0, 179);
+    font-size: 30px;
+}

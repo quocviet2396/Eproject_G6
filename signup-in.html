@@ -89,7 +89,7 @@
             </form>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 register-css" data-aos="fade-up">
-            <form id="register" class="login-form">
+            <form id="register" class="login-form" onsubmit="return f2()">
                 <h1 class="login-h1">Register</h1>
                 <div class="form-group">
                     <input type="text" placeholder="User Name" class="form-input" id="username" name="username"
@@ -116,18 +116,4 @@
 
 <script>
 
-        
-        //java login
-        function f1() {
-
-            let uid = document.getElementById("username1").value.trim();
-
-            if (uid.length == 0) {
-                alert("Username cannot be blank, please do again !");
-                document.getElementById("username1").focus();
-                return false;
-            }
-            alert("Logged in successfully!");
-        }
-    
 </script>

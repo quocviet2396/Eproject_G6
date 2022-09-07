@@ -9,6 +9,45 @@ app.config(function ($routeProvider) {
         })
         .when("/signupin", {
             templateUrl: "signup-in.html"
+        })
+        .when("/contactus", {
+            templateUrl: "contactus.html"
+        })
+        .when("/aboutus", {
+            templateUrl: "aboutus.html"
+        })
+        .when("/introduce", {
+            templateUrl: "introduce.html"
+        })
+        .when("/go-karts", {
+            templateUrl: "go_karts.html"
+        })
+        .when("/hollograves", {
+            templateUrl: "hollograves.html"
+        })
+        .when("/runaway", {
+            templateUrl: "runaway_rapids.html"
+        })
+        .when("/discounts", {
+            templateUrl: "Discounts.html"
+        })
+        .when("/ticket", {
+            templateUrl: "ticket.html"
+        })
+        .when("/buyticket",{
+            templateUrl:"buyticket.html"
+        })
+        .when("/50-ticket",{
+            templateUrl:"50_ticket.html"
+        })
+        .when("/100-ticket",{
+            templateUrl:"100_ticket.html"
+        })
+        .when("/200-ticket",{
+            templateUrl:"200_ticket.html"
+        })
+        .when("/3h-ticket",{
+            templateUrl:"3h_ticket.html"
         });
 });
 
@@ -31,8 +70,22 @@ function myFunction4() {
 }
 
 
-// script signin-up
+// signin-up page
+//java login
 function f1() {
+
+    let uid = document.getElementById("username1").value.trim();
+
+    if (uid.length == 0) {
+        alert("Username cannot be blank, please do again !");
+        document.getElementById("username1").focus();
+        return false;
+    }
+    alert("Logged in successfully!");
+}
+
+//java register
+function f2() {
 
     let uid = document.getElementById("username").value.trim();
 
@@ -41,7 +94,6 @@ function f1() {
         document.getElementById("username").focus();
         return false;
     }
-
     let pass = document.getElementById("pass").value.trim();
     let pass2 = document.getElementById("pass2").value.trim();
     if (pass != pass2) {
@@ -50,4 +102,34 @@ function f1() {
         return false;
     }
     alert("Thanks for your register!");
+}
+
+
+//contactus page
+// Check send message
+function send() {
+    var name = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value
+    var message = document.getElementById("message").value;
+
+    if (name == null || name == "") {
+        alert(" At least let us know your name! ");
+        return false;
+    }
+
+    if (email == null || email == "") {
+        alert(" Enter your email so we can contact you. Example: group5@gmail.com");
+        return false;
+    }
+
+    if (phone == null || phone == "") {
+        alert("Enter your phone number so we can contact you.");
+        return false;
+    }
+
+    if (message == null || message == "") {
+        alert("Please enter your message.");
+        return false;
+    }
 }
