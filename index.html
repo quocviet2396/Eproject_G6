@@ -20,39 +20,86 @@
 </head>
 
 <body ng-app="myAPP">
-    <div>
-        <header class="container">
-            <div>
-                <nav style="background-color: rgba(242, 242, 242, 1); text-align: center;">
-                    <table class="table" style="background-color: rgb(116, 44, 116);">
-                        <a href=""><img src="image/index-image/logo.jpg" alt=""
-                                style="width: 300px; height: 150px; margin: 30px;"></a>
-                        <a href="homepage.html"><img src="image/index-image/logo2.jpg" alt=""
-                                style="width: 300px; height: 150px; margin: 30px;"></a>
-                        <a href=""><img src="image/index-image/logo3.jpg" alt=""
-                                style="width: 300px; height: 150px; margin: 30px;"></a>
-                        <tr>
-                            <th><img src="image/index-image/homeicon.png" alt="home-page" class="social-icon"><a
-                                    href="#/!">Home</a>
-                            </th>
-                            <th><a href="#!introduce"><img src="image/index-image/introduceicon.png"
-                                        class="social-icon">Introduce</a></th>
-                            <th><a href="#!ticket"><img src="image/index-image/ticketicon.png"
-                                        class="social-icon">Ticket</a></th>
-                            <th><a href="#!aboutus"><img src="image/index-image/aboutusicon.png"
-                                        class="social-icon">About Us</a></th>
-                            <th><a href="#!contactus"><img src="image/index-image/contactus.png"
-                                        class="social-icon">Contact Us</a></th>
-                            <th><a href="#!service"><img src="image/index-image/serviceicon.png"
-                                        class="social-icon">Service</a></th>
-                            <th><a href="#!signupin"><img src="image/index-image/signupicon.png"
-                                        class="social-icon">Sign Up / Sign In</a></th>
-                        </tr>
-                    </table>
-                </nav>
+    <header class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#/!"> <img src="image/index-image/keansburg_logo.png"
+                        style="width: 200px; height: 70px;"> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="#!introduce" class="nav-link"><img src="image/index-image/introduceicon.png"
+                                    class="social-icon">Introduce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!ticket" class="nav-link"><img src="image/index-image/ticketicon.png"
+                                    class="social-icon">Ticket</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!aboutus" class="nav-link"><img src="image/index-image/aboutusicon.png"
+                                    class="social-icon">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!contactus" class="nav-link"><img src="image/index-image/contactus.png"
+                                    class="social-icon">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!service" class="nav-link"><img src="image/index-image/serviceicon.png"
+                                    class="social-icon">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!signupin" class="nav-link"><img src="image/index-image/signupicon.png"
+                                    class="social-icon">Sign Up / Sign In</a>
+                        </li>
+                        <li class="nav-item">
+                            <button id="cart">
+                                <img src="image/index-image/carticon.png" class="social-icon">Cart
+                            </button>
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Cart</h5>
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="cart-row">
+                                            <span class="cart-item cart-header cart-column">Product</span>
+                                            <span class="cart-price cart-header cart-column">Price</span>
+                                            <span class="cart-quantity cart-header cart-column">Quantity</span>
+                                        </div>
+                                        <div class="cart-items">
+                                        </div>
+                                        <div class="cart-total">
+                                            <strong class="cart-total-title">Total:</strong>
+                                            <span class="cart-total-price">0$</span>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary close-footer">Close</button>
+                                        <button type="button" class="btn btn-primary order">Pay</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </header>
-    </div>
+        </nav>
+        <nav style="background-color: rgba(242, 242, 242, 1); text-align: center;">
+            <table class="table" style="background-color: rgb(116, 44, 116);">
+                <a href="#!introduce"><img src="image/index-image/logo.jpg" alt=""
+                        style="width: 300px; height: 150px; margin: 30px;"></a>
+                <a href="#!runaway"><img src="image/index-image/logo2.jpg" alt=""
+                        style="width: 300px; height: 150px; margin: 30px;"></a>
+                <a href="#!service"><img src="image/index-image/logo3.jpg" alt=""
+                        style="width: 300px; height: 150px; margin: 30px;"></a>
+            </table>
+        </nav>
+    </header>
     <div>
         <section class="container">
             <div ng-view></div>
@@ -92,7 +139,8 @@
                 <br>
                 <p> Copyright &copy; 2022 KeansBurg Park</p>
 
-                <p style="color: rgb(190, 188, 188);">Designed and developed by <a href="#">Group 6</a><p>
+                <p style="color: rgb(190, 188, 188);">Designed and developed by <a href="#">Group 6</a>
+                <p>
             </div>
         </footer>
     </div>
