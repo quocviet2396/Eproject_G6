@@ -146,41 +146,7 @@
         </footer>
     </div>
 
-    <!-- top up button script -->
-    <script>
-        // Get the button
-        let mybutton = document.getElementById("top-up-btn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 3000,
-            once: true,
-        });
-        document.querySelectorAll('img')
-            .forEach((img) =>
-                img.addEventListener('load', () =>
-                    AOS.refresh()
-                )
-            );
-    </script>
     <script src="js/myscript.js"></script>
     <script>
         // Add carts

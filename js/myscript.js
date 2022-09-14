@@ -34,20 +34,20 @@ app.config(function ($routeProvider) {
         .when("/ticket", {
             templateUrl: "ticket.html"
         })
-        .when("/buyticket",{
-            templateUrl:"buyticket.html"
+        .when("/buyticket", {
+            templateUrl: "buyticket.html"
         })
-        .when("/50-ticket",{
-            templateUrl:"50_ticket.html"
+        .when("/50-ticket", {
+            templateUrl: "50_ticket.html"
         })
-        .when("/100-ticket",{
-            templateUrl:"100_ticket.html"
+        .when("/100-ticket", {
+            templateUrl: "100_ticket.html"
         })
-        .when("/200-ticket",{
-            templateUrl:"200_ticket.html"
+        .when("/200-ticket", {
+            templateUrl: "200_ticket.html"
         })
-        .when("/3h-ticket",{
-            templateUrl:"3h_ticket.html"
+        .when("/3h-ticket", {
+            templateUrl: "3h_ticket.html"
         });
 });
 
@@ -132,4 +132,38 @@ function send() {
         alert("Please enter your message.");
         return false;
     }
+}
+
+// AOS animation
+AOS.init({
+    duration: 3000,
+    once: true,
+});
+document.querySelectorAll('img')
+    .forEach((img) =>
+        img.addEventListener('load', () =>
+            AOS.refresh()
+        )
+    );
+
+
+// Top up button
+// Get the button
+let mybutton = document.getElementById("top-up-btn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
