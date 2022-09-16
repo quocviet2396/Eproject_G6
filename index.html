@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/myscript.js">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body ng-app="myAPP">
@@ -32,6 +35,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link"><img src="image/index-image/countvisitoricon.png"
+                                class="social-icon"><span class="website-counter " style="color: #fff;"></span></a>
+                        </li>
                         <li class="nav-item">
                             <a href="#!introduce" class="nav-link"><img src="image/index-image/introduceicon.png"
                                     class="social-icon">Introduce</a>
@@ -57,38 +64,9 @@
                                     class="social-icon">Sign Up / Sign In</a>
                         </li>
                         <li class="nav-item">
-                            <button id="cart">
-                                <img src="image/index-image/carticon.png" class="social-icon">Cart
-                            </button>
-                            <div id="myModal" class="modal">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Cart</h5>
-                                        <span class="close">&times;</span>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="cart-row">
-                                            <span class="cart-item cart-header cart-column">Product</span>
-                                            <span class="cart-price cart-header cart-column">Price</span>
-                                            <span class="cart-quantity cart-header cart-column">Quantity</span>
-                                        </div>
-                                        <div class="cart-items">
-                                        </div>
-                                        <div class="cart-total">
-                                            <strong class="cart-total-title">Total:</strong>
-                                            <span class="cart-total-price">0$</span>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary close-footer">Close</button>
-                                        <button type="button" class="btn btn-primary order">Pay</button>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="#!cart" class="nav-link"><img src="image/index-image/carticon.png"
+                                    class="social-icon">Other</a>
                         </li>
-                    </ul>
-                </div>
-            </div>
         </nav>
         <nav style="background-color: rgba(242, 242, 242, 1); text-align: center;">
             <table class="table" style="background-color: rgb(116, 44, 116);">
@@ -146,134 +124,35 @@
         </footer>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/myscript.js"></script>
     <script>
-        // Add carts
-        function fn_ticket(ele) {
+        //luong truy cap
+        var counterContainer = document.querySelector(".website-counter");
+        var resetButton = document.querySelector("#reset");
+        var visitCount = localStorage.getItem("page_view");
 
-            //var button = event.target;
-            //var product = button.parentElement.parentElement;
-            var product = ele.parentElement.parentElement;
-            //console.log(product.nodeName);
-            var img = product.parentElement.parentElement.getElementsByClassName("img-pgd")[0].src
-            var title = product.getElementsByClassName("content-product-h3")[0].innerText
-            var price = product.getElementsByClassName("price")[0].innerText
-            addItemToCart(title, price, img)
-            // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
-            modal.style.display = "block";
-
-            updatecart()
+        if (visitCount) {
+            visitCount = Number(visitCount) + 1;
+            localStorage.setItem("page_view", visitCount);
+        } else {
+            visitCount = 1;
+            localStorage.setItem("page_view", 1);
         }
-
-
-        function addItemToCart(title, price, img) {
-            var cartRow = document.createElement('div')
-            cartRow.classList.add('cart-row')
-            var cartItems = document.getElementsByClassName('cart-items')[0]
-            var cart_title = cartItems.getElementsByClassName('cart-item-title')
-            //Nếu title của sản phẩm bằng với title mà bạn thêm vao giỏ hàng thì sẽ thông cho user.
-            for (var i = 0; i < cart_title.length; i++) {
-                if (cart_title[i].innerText == title) {
-                    alert('Products already in the cart')
-                    return
-                }
-            }
-
-            var cartRowContents = `<div class="cart-item cart-column">
-<img class="cart-item-image" src="${img}" width="100" height="100">
-<span class="cart-item-title">${title}</span>
-</div>
-<span class="cart-price cart-column">${price}</span>
-<div class="cart-quantity cart-column">
-<input class="cart-quantity-input" type="number" value="1">
-<button class="btn btn-danger" type="button">Delete</button>
-</div>`
-            cartRow.innerHTML = cartRowContents
-            cartItems.append(cartRow)
-            cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', function () {
-                var button_remove = event.target
-                button_remove.parentElement.parentElement.remove()
-                updatecart()
-            })
-            cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', function (event) {
-                var input = event.target
-                if (isNaN(input.value) || input.value <= 0) {
-                    input.value = 1;
-                }
-                updatecart()
-            })
-        }
-
-
-        // Modal
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("cart");
-        var close = document.getElementsByClassName("close")[0];
-        // tại sao lại có [0] như  thế này bởi vì mỗi close là một html colection nên khi mình muốn lấy giá trị html thì phải thêm [0]. 
-        //Nếu mình có 2 cái component cùng class thì khi [0] nó sẽ hiển thị component 1 còn [1] thì nó sẽ hiển thị component 2.
-        var close_footer = document.getElementsByClassName("close-footer")[0];
-        var order = document.getElementsByClassName("order")[0];
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
-        close.onclick = function () {
-            modal.style.display = "none";
-        }
-        close_footer.onclick = function () {
-            modal.style.display = "none";
-        }
-        order.onclick = function () {
-            alert("Thank you for your order")
-        }
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-        //Delete produce
-        var remove_cart = document.getElementsByClassName("btn-danger");
-        for (var i = 0; i < remove_cart.length; i++) {
-            var button = remove_cart[i]
-            button.addEventListener("click", function () {
-                var button_remove = event.target
-                button_remove.parentElement.parentElement.remove()
-                updatecart()
-            })
-        }
-
-        // update cart 
-        function updatecart() {
-            var cart_item = document.getElementsByClassName("cart-items")[0];
-            var cart_rows = cart_item.getElementsByClassName("cart-row");
-            var total = 0;
-
-            for (var i = 0; i < cart_rows.length; i++) {
-                var cart_row = cart_rows[i]
-                var price_item = cart_row.getElementsByClassName("cart-price")
-                var quantity_item = cart_row.getElementsByClassName("cart-quantity-input")[0]
-                var price = parseFloat(price_item.innerText)// chuyển một chuổi string sang number để tính tổng tiền.
-                var quantity = quantity_item.value // lấy giá trị trong thẻ input
-                total = total + (price * quantity)
-            }
-            document.getElementsByClassName("cart-total")[0].innerText = total + '$'
-            // Thay đổi text = total trong .cart-total-price. Chỉ có một .cart-total-price nên mình sử dụng [0].
-        }
-
-        // thay đổi số lượng sản phẩm
-        var quantity_input = document.getElementsByClassName("cart-quantity-input");
-        for (var i = 0; i < quantity_input.length; i++) {
-            var input = quantity_input[i];
-            input.addEventListener("change", function (event) {
-                var input = event.target
-                if (isNaN(input.value) || input.value <= 0) {
-                    input.value = 1;
-                }
-                updatecart()
-            })
-        }
+        counterContainer.innerHTML = visitCount;
     </script>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            once: true,
+        });
+        document.querySelectorAll('img')
+            .forEach((img) =>
+                img.addEventListener('load', () =>
+                    AOS.refresh()
+                )
+            );
+    </script>
+    <script src="js/myscript.js"></script>
 </body>
 
 </html>

@@ -37,18 +37,10 @@ app.config(function ($routeProvider) {
         .when("/buyticket", {
             templateUrl: "buyticket.html"
         })
-        .when("/50-ticket", {
-            templateUrl: "50_ticket.html"
-        })
-        .when("/100-ticket", {
-            templateUrl: "100_ticket.html"
-        })
-        .when("/200-ticket", {
-            templateUrl: "200_ticket.html"
-        })
-        .when("/3h-ticket", {
-            templateUrl: "3h_ticket.html"
+        .when("/cart", {
+            templateUrl: "cart.html"
         });
+
 });
 
 //Jump to element
@@ -134,20 +126,83 @@ function send() {
     }
 }
 
-// AOS animation
-AOS.init({
-    duration: 3000,
-    once: true,
+//order ticket
+//dinh nghia bien ds o pham vi ung dung a
+app.run(function ($rootScope, $http) {
+
+    $http.get("pizza.json").then(function (response) {
+        $rootScope.menu = response.data.menu;
+        console.log($rootScope.menu);
+
+    });
+
+    $rootScope.cart = [];
+    $rootScope.total = 0;
 });
-document.querySelectorAll('img')
-    .forEach((img) =>
-        img.addEventListener('load', () =>
-            AOS.refresh()
-        )
-    );
 
 
-// Top up button
+app.controller("productControl", function ($scope, $rootScope) {
+    $scope.addCart = function (id) {
+        var item = $rootScope.menu[id];
+
+        for (var i = 0; i < $rootScope.cart.length; ++i) {
+            if ($rootScope.cart[i].id == id) {
+                $rootScope.cart[i].qty++;
+                $rootScope.total += $rootScope.cart[i].price
+                return;
+            }
+        }
+        var newEle = {
+            "id": id,
+            "name": item.name,
+            "price": item.price,
+            "qty": 1
+        }
+        $rootScope.total += item.price
+        $rootScope.cart.push(newEle);
+        console.log($rootScope.cart)
+    }
+    $scope.show = function (id) {
+        console.log("ma: " + id);
+
+        let data = $rootScope.menu;
+        let product = data.find(v => v.id == id);
+
+        $scope.name = product.name;
+        $scope.price = product.price;
+        $scope.description = product.description;
+        $scope.image = product.image;
+        console.log(product);
+
+    }
+});
+
+app.controller("cartControl", function ($scope, $rootScope) {
+
+    $scope.isShow = false;
+    $scope.removeAll = function () {
+        $rootScope.total = 0
+        $rootScope.cart = [];
+    }
+
+    $scope.checkout = function () {
+        if ($rootScope.cart.length > 0) {
+            $scope.isShow = true;
+        }
+        else {
+            $scope.isShow = false;
+        }
+    }
+
+    $scope.thank = function () {
+        alert("Thanks for your order !");
+        $scope.isShow = false;
+        $rootScope.total = 0
+        $rootScope.cart = [];
+    }
+});
+
+//top-up-btn
 // Get the button
 let mybutton = document.getElementById("top-up-btn");
 

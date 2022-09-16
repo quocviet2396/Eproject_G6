@@ -9,7 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/ticket.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <style>
+        .item {
+            border: white thin solid;
+            padding: 15px;
+            height: 450px;
+            text-align: center;
+            margin-top: 15px;
+        }
 
+        .filter {
+            border: solid thin red;
+            padding: 2em;
+            width: fit-content;
+        }
+
+        /*
+        input[type=button] {
+            position: absolute;
+            left: 10px;
+            top:200px;
+        }
+        */
+    </style>
 
 </head>
 <nav style="background-color: rgba(242, 242, 242, 1); text-align: center;">
@@ -36,7 +58,7 @@
         <p>&nbsp;</p>
         <div>
             <div>
-                <h3 style="text-align: center;">
+                <h3 style="text-align: center;" data-aos="fade-right">
                     <strong>"There will be NO online ticket sales for 2022 season. All tickets for amusement park and
                         waterpark must be purchased in-person at any of the park ticketbooths. Thank you!"</strong>
                 </h3>
@@ -45,44 +67,51 @@
         </div>
 
     </header>
-    <div class="container">
-        <div class="row" style="padding: auto; text-align:center;">
-            <div class="col-sm-6" data-aos="fade-left">
-                <a href="#!50-ticket">
-                    <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/04/50ticket1.png"
-                        alt="50_ticket">
-                </a>
+    <div class="container" ng-controller="productControl">
+        <div class="row">
+            <div ng-repeat="item in menu" class="col-sm-12 col-md-6 item" 
+            ng-click=show(item.id)  data-toggle="modal" data-target="#myModal" data-aos="fade-left" >
+    
+                <img src="images/{{item.image}}"> <br>  <br>
+               <strong> {{item.price|currency}} </strong>
+                <br>
+                <input type="button" value="Add To Cart" ng-click="addCart($index)" class="btn btn-success"> <br><br>
+                
             </div>
-
-            <div class="col-sm-6" data-aos="fade-right">
-                <a href="#!100-ticket">
-                    <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/04/100ticketbook.png"
-                        alt="100_ticket">
-                </a>
-            </div>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <div class="col-sm-6" data-aos="fade-left">
-                <a href="#!200-ticket">
-                    <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/04/200ticketbook.png"
-                        alt="200_ticket">
-                </a>
-            </div>
-
-            <div class="col-sm-6" data-aos="fade-right">
-                <a href="#!3h-ticket">
-                    <img src="https://keansburgamusementpark.com/wp-content/uploads/2015/04/runaway.png"
-                        alt="3h_ticket">
-                </a>
-            </div>
-
         </div>
-        <p>&nbsp;</p>
-        <div>
-            <h4 style="text-align: center;" data-aos="fade-up">
-                <strong>*All prices include NJ sales tax. $6.95 shipping and handling fees will be applied during
-                    checkout. Please allow 10 days for delivery.</strong>
-            </h4>
+    
+    
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="imgs-zoom-area"><img id="zoom_03" src="images/{{image}}"
+                                        style="width: 100%;" alt=""></div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="text-black-1">Product Name: {{name}} </h3>
+    
+                                <h6 class="brand-name-2">Product Price : {{price}}</h6>
+                               
+                                <div role="tabpanel" class="tab-pane active" id="description">
+                                    <p>{{description}}.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+    
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
