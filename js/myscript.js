@@ -206,11 +206,11 @@ app.controller("cartControl", function ($scope, $rootScope) {
 // Get the button
 let mybutton = document.getElementById("top-up-btn");
 
-// When the user scrolls down 20px from the top of the document, show the button
+// When the user scrolls down 10px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
         mybutton.style.display = "block";
     } else {
         mybutton.style.display = "none";
@@ -221,4 +221,12 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+//time on scroll btn
+setInterval(myTimer, 1000);
+
+function myTimer() {
+    const d = new Date();
+    document.getElementById("timingbottom").innerHTML = d.toLocaleTimeString();
 }
