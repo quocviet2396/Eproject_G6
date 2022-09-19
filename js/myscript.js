@@ -231,7 +231,7 @@ function myTimer() {
     document.getElementById("timingbottom").innerHTML = d.toLocaleTimeString();
 }
 
-//luong truy cap
+//count visitor
 var counterContainer = document.querySelector(".website-counter");
 var resetButton = document.querySelector("#reset");
 var visitCount = localStorage.getItem("page_view");
