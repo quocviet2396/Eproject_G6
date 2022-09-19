@@ -16,7 +16,7 @@ Luong Thanh Hop: Student1381858
 
 ============================
 
-github report link: https://github.com/xosakibinh/Venus-Handicraft-Group5/tree/main/Document
+github report link: https://github.com/quocviet2396/Eproject_G6/tree/master/documents
 
 ============================
 
